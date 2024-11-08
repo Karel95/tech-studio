@@ -1,0 +1,24 @@
+
+.drawerBox {
+    margin-top: 5rem;
+}
+
+.btn-quitar {
+    display: none;
+}
+
+.btn-added:hover {
+    border-color: red;
+}
+
+.btn-added:hover .btn-quitar {
+    display: block;
+}
+
+.btn-added:hover .btn-addText{
+    display: none;
+}
+
+.btn-quitar:hover {
+    color: red;
+}
