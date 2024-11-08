@@ -21,7 +21,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import SignIn from "../pages/sign-in/SignIn.tsx";
-import Register from "../pages/Register";
+import SignUp from "../pages/sign-up/SignUp.tsx";
 import Main from "./grid";
 import Weather from "../pages/Weather";
 
@@ -100,10 +100,10 @@ const Drawer = styled(MuiDrawer, {
   whiteSpace: "nowrap",
   boxSizing: "border-box",
   marginTop: theme.spacing(8), // 64px para pantallas grandes
-  height: `calc(100vh - 2 * ${theme.spacing(8)})`, // Restar dos veces la altura del AppBar para pantallas grandes
+  height: `calc(100vh - ${theme.spacing(8)})`,
   [theme.breakpoints.down("sm")]: {
     marginTop: theme.spacing(7), // 56px para pantallas pequeñas
-    height: `calc(100vh - 2 * ${theme.spacing(7)})`, // Restar dos veces la altura del AppBar para pantallas pequeñas
+    height: `calc(100vh - ${theme.spacing(7)})`,
   },
   variants: [
     {
@@ -113,10 +113,10 @@ const Drawer = styled(MuiDrawer, {
         "& .MuiDrawer-paper": {
           ...openedMixin(theme),
           marginTop: `calc(${theme.spacing(8)})`, // 64px para pantallas grandes (default)
-          height: `calc(100vh - 2 * ${theme.spacing(8)})`, // Restar dos veces la altura del AppBar para pantallas grandes
+          height: `calc(100vh - ${theme.spacing(8)})`,
           [theme.breakpoints.down("sm")]: {
             marginTop: theme.spacing(7), // 56px para pantallas pequeñas
-            height: `calc(100vh - 2 * ${theme.spacing(7)})`, // Restar dos veces la altura del AppBar para pantallas pequeñas
+            height: `calc(100vh - ${theme.spacing(7)})`,
           },
         },
       },
@@ -128,10 +128,10 @@ const Drawer = styled(MuiDrawer, {
         "& .MuiDrawer-paper": {
           ...closedMixin(theme),
           marginTop: `calc(${theme.spacing(8)})`, // 64px para pantallas grandes (default)
-          height: `calc(100vh - 2 * ${theme.spacing(8)})`, // Restar dos veces la altura del AppBar para pantallas grandes
+          height: `calc(100vh - ${theme.spacing(8)})`,
           [theme.breakpoints.down("sm")]: {
             marginTop: theme.spacing(7), // 56px para pantallas pequeñas
-            height: `calc(100vh - 2 * ${theme.spacing(7)})`, // Restar dos veces la altura del AppBar para pantallas pequeñas
+            height: `calc(100vh - ${theme.spacing(7)})`,
           },
         },
       },
@@ -298,7 +298,7 @@ const MiniDrawer = () => {
           <Route path="/" element={<Home />} />
           <Route path="/main" element={<Main />} />
           <Route path="/login" element={<SignIn />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<SignUp />} />
           <Route path="/weather" element={<Weather />} />
         </Routes>
       </Box>
