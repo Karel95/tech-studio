@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 import { GridCellParams, GridRowsProp, GridColDef } from '@mui/x-data-grid';
@@ -21,6 +20,7 @@ function getDaysInMonth(month: number, year: number) {
   return days;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function renderSparklineCell(params: GridCellParams<SparkLineData, any>) {
   const data = getDaysInMonth(4, 2024);
   const { value, colDef } = params;
@@ -58,6 +58,7 @@ function renderStatus(status: 'Online' | 'Offline') {
 }
 
 export function renderAvatar(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   params: GridCellParams<{ name: string; color: string }, any, any>,
 ) {
   if (params.value == null) {
@@ -85,6 +86,7 @@ export const columns: GridColDef[] = [
     headerName: 'Status',
     flex: 0.5,
     minWidth: 80,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     renderCell: (params) => renderStatus(params.value as any),
   },
   {
