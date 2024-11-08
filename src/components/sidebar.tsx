@@ -20,7 +20,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
-import Login from "../pages/Login";
+import SignIn from "../pages/sign-in/SignIn.tsx";
 import Register from "../pages/Register";
 import Main from "./grid";
 import Weather from "../pages/Weather";
@@ -297,7 +297,7 @@ const MiniDrawer = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/main" element={<Main />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<SignIn />} />
           <Route path="/register" element={<Register />} />
           <Route path="/weather" element={<Weather />} />
         </Routes>
