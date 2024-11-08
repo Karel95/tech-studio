@@ -114,6 +114,7 @@ export function MobileLayout({
               ? ({
                   '--items-imageLight': items[selectedItemIndex].imageLight,
                   '--items-imageDark': items[selectedItemIndex].imageDark,
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 } as any)
               : {}
           }
@@ -261,6 +262,7 @@ export default function Features() {
                   ? ({
                       '--items-imageLight': items[selectedItemIndex].imageLight,
                       '--items-imageDark': items[selectedItemIndex].imageDark,
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     } as any)
                   : {}
               }

@@ -102,6 +102,7 @@ interface CustomLabelProps {
   expandable?: boolean;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function CustomLabel({ color, expandable, children, ...other }: CustomLabelProps) {
   const theme = useTheme();
   const colors = {
