@@ -10,6 +10,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import SignIn from "../src/pages/sign-in/SignIn.tsx";
 import SignUp from "../src/pages/sign-up/SignUp.tsx";
 import MarketingPage from "./pages/marketing-page/MarketingPage.tsx";
+import JoyOrderDashboardTemplate from "./pages/profile/App.tsx";
 
 
 export default function App() {
@@ -44,6 +45,7 @@ export default function App() {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/marketing-page" element={<MarketingPage />} />
+            <Route path="/profile" element={<JoyOrderDashboardTemplate />} />
             <Route path="/login" element={<SignIn />} />
             <Route path="/register" element={<SignUp />} />
           </Routes>

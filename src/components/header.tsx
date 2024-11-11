@@ -56,6 +56,9 @@ const UserMenu = () => {
         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/marketing-page">
           <Typography sx={{ textAlign: "center" }}>Marketing Page</Typography>
         </MenuItem>
+        <MenuItem onClick={handleCloseUserMenu} component={Link} to="/profile">
+          <Typography sx={{ textAlign: "center" }}>Profile</Typography>
+        </MenuItem>
         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/login">
           <Typography sx={{ textAlign: "center" }}>Login</Typography>
         </MenuItem>
