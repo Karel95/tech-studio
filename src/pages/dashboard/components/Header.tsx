@@ -6,6 +6,7 @@ import MenuButton from './MenuButton';
 import ColorModeIconDropdown from '../../shared-theme/ColorModeIconDropdown';
 
 import Search from './Search';
+import UserMenu from '../../../components/header';
 
 export default function Header() {
   return (
@@ -29,6 +30,7 @@ export default function Header() {
           <NotificationsRoundedIcon />
         </MenuButton>
         <ColorModeIconDropdown />
+        <UserMenu />
       </Stack>
     </Stack>
   );

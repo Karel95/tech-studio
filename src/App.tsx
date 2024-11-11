@@ -2,14 +2,18 @@ import "./App.css";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { lightTheme, darkTheme } from "./themes";
 import { useEffect, useState } from "react";
-// import ResponsiveAppBar from "./components/header";
 import { BrowserRouter } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard";
+import { Route, Routes } from "react-router-dom";
+import Blog from "../src/pages/blog/Blog.tsx";
+import SignIn from "../src/pages/sign-in/SignIn.tsx";
+import SignUp from "../src/pages/sign-up/SignUp.tsx";
+import Weather from "../src/pages/Weather";
+
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  
   // Auto-theme detection
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -34,7 +38,13 @@ export default function App() {
       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
         <BrowserRouter>
           <CssBaseline />
-          <Dashboard />
+          <Routes>
+            <Route path="/" element={<Blog />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/login" element={<SignIn />} />
+            <Route path="/register" element={<SignUp />} />
+            <Route path="/weather" element={<Weather />} />
+          </Routes>
         </BrowserRouter>
       </ThemeProvider>
     </>
