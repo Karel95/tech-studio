@@ -3,12 +3,13 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { lightTheme, darkTheme } from "./themes";
 import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-import Dashboard from "./pages/dashboard/Dashboard";
 import { Route, Routes } from "react-router-dom";
 import Blog from "../src/pages/blog/Blog.tsx";
+import Checkout from "../src/pages/checkout/Checkout.tsx";
+import Dashboard from "./pages/dashboard/Dashboard";
 import SignIn from "../src/pages/sign-in/SignIn.tsx";
 import SignUp from "../src/pages/sign-up/SignUp.tsx";
-import Weather from "../src/pages/Weather";
+import MarketingPage from "./pages/marketing-page/MarketingPage.tsx";
 
 
 export default function App() {
@@ -40,10 +41,11 @@ export default function App() {
           <CssBaseline />
           <Routes>
             <Route path="/" element={<Blog />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/marketing-page" element={<MarketingPage />} />
             <Route path="/login" element={<SignIn />} />
             <Route path="/register" element={<SignUp />} />
-            <Route path="/weather" element={<Weather />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

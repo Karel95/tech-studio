@@ -47,21 +47,20 @@ const UserMenu = () => {
         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/">
           <Typography sx={{ textAlign: "center" }}>Home</Typography>
         </MenuItem>
-        <MenuItem
-          onClick={handleCloseUserMenu}
-          component={Link}
-          to="/dashboard"
-        >
+        <MenuItem onClick={handleCloseUserMenu} component={Link} to="/checkout">
+          <Typography sx={{ textAlign: "center" }}>Checkout</Typography>
+        </MenuItem>
+        <MenuItem onClick={handleCloseUserMenu} component={Link} to="/dashboard">
           <Typography sx={{ textAlign: "center" }}>Dashboard</Typography>
+        </MenuItem>
+        <MenuItem onClick={handleCloseUserMenu} component={Link} to="/marketing-page">
+          <Typography sx={{ textAlign: "center" }}>Marketing Page</Typography>
         </MenuItem>
         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/login">
           <Typography sx={{ textAlign: "center" }}>Login</Typography>
         </MenuItem>
         <MenuItem onClick={handleCloseUserMenu} component={Link} to="/register">
           <Typography sx={{ textAlign: "center" }}>Register</Typography>
-        </MenuItem>
-        <MenuItem onClick={handleCloseUserMenu} component={Link} to="/weather">
-          <Typography sx={{ textAlign: "center" }}>Weather</Typography>
         </MenuItem>
       </Menu>
     </Box>

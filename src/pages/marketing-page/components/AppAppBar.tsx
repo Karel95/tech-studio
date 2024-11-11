@@ -13,6 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import Sitemark from './SitemarkIcon';
 import ColorModeIconDropdown from '../../shared-theme/ColorModeIconDropdown';
+import UserMenu from '../../../components/header';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
@@ -87,6 +88,7 @@ export default function AppAppBar() {
               Sign up
             </Button>
             <ColorModeIconDropdown />
+            <UserMenu />
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
             <ColorModeIconDropdown size="medium" />
@@ -134,6 +136,7 @@ export default function AppAppBar() {
                 </MenuItem>
               </Box>
             </Drawer>
+            <UserMenu />
           </Box>
         </StyledToolbar>
       </Container>
