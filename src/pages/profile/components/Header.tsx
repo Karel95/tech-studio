@@ -3,6 +3,15 @@ import IconButton from '@mui/joy/IconButton';
 import Sheet from '@mui/joy/Sheet';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import { toggleSidebar } from '../utils';
+import Stack from '@mui/material/Stack';
+// import Search from '../../../components/Search';
+// import CustomDatePicker from '../../../components/CustomDatePicker';
+// import MenuButton from '../../../components/MenuButton';
+// import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
+// import ColorModeIconDropdown from '../../shared-theme/ColorModeIconDropdown';
+// import UserMenu from '../../../components/header';
+
+
 
 export default function Header() {
   return (
@@ -41,6 +50,15 @@ export default function Header() {
       >
         <MenuRoundedIcon />
       </IconButton>
+      <Stack direction="row" sx={{ gap: 1 }}>
+        {/* <Search /> */}
+        {/* <CustomDatePicker /> */}
+        {/* <MenuButton showBadge aria-label="Open notifications">
+          <NotificationsRoundedIcon />
+        </MenuButton> */}
+        {/* <ColorModeIconDropdown /> */}
+        {/* <UserMenu /> */}
+      </Stack>
     </Sheet>
   );
 }
