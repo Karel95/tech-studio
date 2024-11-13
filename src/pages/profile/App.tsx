@@ -1,48 +1,35 @@
-import { alpha } from '@mui/material/styles';
-import AppTheme from "../shared-theme/AppTheme";
-import CssBaseline from "@mui/material/CssBaseline";
-import Box from "@mui/material/Box";
-// import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
-// import MyProfile from "./components/MyProfile";
-import {
-  chartsCustomizations,
-  dataGridCustomizations,
-  datePickersCustomizations,
-  treeViewCustomizations,
-} from "../../theme/customizations";
+import { CssVarsProvider } from '@mui/joy/styles';
+import CssBaseline from '@mui/joy/CssBaseline';
+import Box from '@mui/joy/Box';
+import Sidebar from './components/Sidebar';
+import Header from './components/Header';
+import MyProfile from './components/MyProfile';
 
-const xThemeComponents = {
-  ...chartsCustomizations,
-  ...dataGridCustomizations,
-  ...datePickersCustomizations,
-  ...treeViewCustomizations,
-};
-
-export default function JoyOrderDashboardTemplate(props: {
-  disableCustomTheme?: boolean;
-}) {
+export default function JoyOrderDashboardTemplate() {
   return (
-    <AppTheme {...props} themeComponents={xThemeComponents}>
-      <CssBaseline enableColorScheme />
-      <Box sx={{ display: "flex", minHeight: "100dvh" }}>
-        {/* <Sidebar /> */}
+    <CssVarsProvider disableTransitionOnChange>
+      <CssBaseline />
+      <Box sx={{ display: 'flex', minHeight: '100dvh' }}>
+        <Sidebar />
         <Header />
-
-        {/* Main content */}
         <Box
           component="main"
-          sx={(theme) => ({
-            flexGrow: 1,
-            backgroundColor: theme.vars
-              ? `rgba(${theme.vars.palette.background.defaultChannel} / 1)`
-              : alpha(theme.palette.background.default, 1),
+          className="MainContent"
+          sx={{
+            pt: { xs: 'calc(12px + var(--Header-height))', md: 3 },
+            pb: { xs: 2, sm: 2, md: 3 },
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            minWidth: 0,
+            height: '100dvh',
+            gap: 1,
             overflow: 'auto',
-          })}
+          }}
         >
-          {/* <MyProfile /> */}
+          <MyProfile />
         </Box>
       </Box>
-    </AppTheme>
+    </CssVarsProvider>
   );
 }
