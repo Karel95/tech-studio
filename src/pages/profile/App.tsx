@@ -3,7 +3,7 @@ import AppTheme from "../shared-theme/AppTheme";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 // import Sidebar from "./components/Sidebar";
-// import Header from "./components/Header";
+import Header from "./components/Header";
 // import MyProfile from "./components/MyProfile";
 import {
   chartsCustomizations,
@@ -11,8 +11,6 @@ import {
   datePickersCustomizations,
   treeViewCustomizations,
 } from "../../theme/customizations";
-import SideMenu from '../dashboard/components/SideMenu';
-import AppNavbar from '../dashboard/components/AppNavbar';
 
 const xThemeComponents = {
   ...chartsCustomizations,
@@ -28,11 +26,8 @@ export default function JoyOrderDashboardTemplate(props: {
     <AppTheme {...props} themeComponents={xThemeComponents}>
       <CssBaseline enableColorScheme />
       <Box sx={{ display: "flex", minHeight: "100dvh" }}>
-        {/* <Sidebar />
-        <Header /> */}
-
-        <SideMenu />
-        <AppNavbar />
+        {/* <Sidebar /> */}
+        <Header />
 
         {/* Main content */}
         <Box
