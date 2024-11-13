@@ -1,4 +1,3 @@
-import * as React from 'react';
 import AspectRatio from '@mui/joy/AspectRatio';
 import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
@@ -50,13 +49,13 @@ export default function MyProfile() {
           <Breadcrumbs
             size="sm"
             aria-label="breadcrumbs"
-            separator={<ChevronRightRoundedIcon fontSize="sm" />}
+            separator={<ChevronRightRoundedIcon fontSize="small" />}
             sx={{ pl: 0 }}
           >
             <Link
               underline="none"
               color="neutral"
-              href="#some-link"
+              href="/"
               aria-label="Home"
             >
               <HomeRoundedIcon />
@@ -64,7 +63,7 @@ export default function MyProfile() {
             <Link
               underline="hover"
               color="neutral"
-              href="#some-link"
+              href="/profile"
               sx={{ fontSize: 12, fontWeight: 500 }}
             >
               Users
