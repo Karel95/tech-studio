@@ -16,7 +16,6 @@ import ColorModeIconDropdown from "../pages/shared-theme/ColorModeIconDropdown";
 import UserMenu from "./header";
 import { Link } from "react-router-dom";
 
-
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
@@ -95,10 +94,22 @@ export default function AppAppBar() {
               alignItems: "center",
             }}
           >
-            <Button component={Link} to="/login" color="primary" variant="text" size="small">
+            <Button
+              component={Link}
+              to="/login"
+              color="primary"
+              variant="text"
+              size="small"
+            >
               Sign in
             </Button>
-            <Button component={Link} to='/register' color="primary" variant="contained" size="small">
+            <Button
+              component={Link}
+              to="/register"
+              color="primary"
+              variant="contained"
+              size="small"
+            >
               Sign up
             </Button>
             <ColorModeIconDropdown />
@@ -136,7 +147,7 @@ export default function AppAppBar() {
                 <MenuItem>FAQ</MenuItem>
                 <MenuItem>Blog</MenuItem>
                 <Divider sx={{ my: 3 }} />
-                <MenuItem component={Link} to='/register' >
+                <MenuItem component={Link} to="/register">
                   <Button color="primary" variant="contained" fullWidth>
                     Sign up
                   </Button>
@@ -149,7 +160,9 @@ export default function AppAppBar() {
               </Box>
             </Drawer>
           </Box>
-          <UserMenu />
+          <Box sx={{ ml: 2 }}>
+            <UserMenu />
+          </Box>
         </StyledToolbar>
       </Container>
     </AppBar>

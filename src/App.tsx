@@ -41,10 +41,10 @@ export default function App() {
         <BrowserRouter>
           <CssBaseline />
           <Routes>
-            <Route path="/" element={<Blog />} />
+            <Route path="/" element={<MarketingPage />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/marketing-page" element={<MarketingPage />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/profile" element={<JoyOrderDashboardTemplate />} />
             <Route path="/login" element={<SignIn />} />
             <Route path="/register" element={<SignUp />} />
