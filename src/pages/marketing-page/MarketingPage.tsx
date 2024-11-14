@@ -1,6 +1,6 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
-import AppAppBar from './components/AppAppBar';
+import AppAppBar from '../../components/AppAppBar';
 import Hero from './components/Hero';
 import LogoCollection from './components/LogoCollection';
 import Highlights from './components/Highlights';
