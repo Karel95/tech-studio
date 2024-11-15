@@ -18,6 +18,7 @@ import ForgotPassword from './ForgotPassword';
 import { SitemarkIcon } from './CustomIcons';
 import AppTheme from '../shared-theme/AppTheme';
 import ColorModeSelect from '../shared-theme/ColorModeSelect';
+import axios from 'axios';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -76,18 +77,38 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
     setOpen(false);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     if (emailError || passwordError) {
       event.preventDefault();
       return;
     }
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
 
+    if (!validateInputs()) {
+      return;
+    }
+    
+    event.preventDefault();
+    
+    const data = new FormData(event.currentTarget);
+    const email = data.get('email');
+    const password = data.get('password');
+    
+    console.log({ email, password });
+    
+    try {
+      const result = await axios.post('http://localhost:3000/api/v1/users/login', { 
+        email: email, 
+        password: password 
+      });
+      
+      console.log('Login successful: ', result.data);
+      // Maneja el éxito del inicio de sesión, como redirigir al usuario.
+    } catch (err) {
+      console.error('Error signing in: ', err);
+      // Maneja el error, como mostrar un mensaje al usuario.
+    }
+  };
+  
   const validateInputs = () => {
     const email = document.getElementById('email') as HTMLInputElement;
     const password = document.getElementById('password') as HTMLInputElement;
@@ -195,7 +216,6 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
               type="submit"
               fullWidth
               variant="contained"
-              onClick={validateInputs}
             >
               Sign in
             </Button>
