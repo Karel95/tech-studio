@@ -1,32 +1,11 @@
-import * as React from 'react';
 import { useColorScheme } from '@mui/joy/styles';
 import IconButton, { IconButtonProps } from '@mui/joy/IconButton';
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 import LightModeIcon from '@mui/icons-material/LightMode';
 
 export default function ColorSchemeToggle(props: IconButtonProps) {
-  const { onClick, sx, ...other } = props;
+  const { onClick, sx } = props;
   const { mode, setMode } = useColorScheme();
-  const [mounted, setMounted] = React.useState(false);
-
-  // Este efecto asegura que el componente se monte correctamente.
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Aseguramos que el componente no se renderice antes de montarse
-  if (!mounted) {
-    return (
-      <IconButton
-        size="sm"
-        variant="outlined"
-        color="neutral"
-        {...other}
-        sx={sx}
-        disabled
-      />
-    );
-  }
 
   // Cuando se hace clic, alternamos entre light y dark mode
   const handleModeToggle = () => {
