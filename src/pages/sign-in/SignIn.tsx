@@ -92,17 +92,17 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
     const data = new FormData(event.currentTarget);
     const email = data.get('email');
     const password = data.get('password');
-    
-    console.log({ email, password });
-    
+        
     try {
       const result = await axios.post('http://localhost:3000/api/v1/users/login', { 
         email: email, 
         password: password 
       });
       
-      console.log('Login successful: ', result.data);
-      // Maneja el éxito del inicio de sesión, como redirigir al usuario.
+      localStorage.setItem('token', result.data.token);
+
+      window.location.href = '/profile';
+
     } catch (err) {
       console.error('Error signing in: ', err);
       // Maneja el error, como mostrar un mensaje al usuario.
