@@ -17,6 +17,8 @@ import AppTheme from '../shared-theme/AppTheme';
 // import { GoogleIcon, FacebookIcon, SitemarkIcon } from './CustomIcons';
 import { SitemarkIcon } from './CustomIcons';
 import ColorModeSelect from '../shared-theme/ColorModeSelect';
+import axios from 'axios';
+
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -68,7 +70,7 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
   const [nameError, setNameError] = React.useState(false);
   const [nameErrorMessage, setNameErrorMessage] = React.useState('');
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     if (nameError || emailError || passwordError) {
       event.preventDefault();
       return;
@@ -85,11 +87,25 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
     const email = data.get('email');
     const password = data.get('password');
 
-    console.log({
-      name: name,
-      email: email,
-      password: password,
-    });
+    try {
+      const result = await axios.post('http://localhost:3000/api/v1/users/register', {
+        username: name,
+        email: email,
+        password: password
+      }, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });      
+      
+      localStorage.setItem('token', result.data.token);
+
+      window.location.href = '/profile';
+
+    } catch (err) {
+      console.error('Error signing in: ', err);
+      // Maneja el error, como mostrar un mensaje al usuario.
+    }
   };
 
   const validateInputs = () => {
