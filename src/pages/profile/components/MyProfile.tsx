@@ -40,6 +40,13 @@ interface UserProfile {
 export default function MyProfile() {
   const [profile, setProfile] = React.useState<UserProfile | null>(null);
   const token = localStorage.getItem('token');
+
+  // Uncomment the following if you're using JWT tokens:
+  
+  // if (!token) {
+  //   window.location.href = '/login'; //or register
+  // }
+
   React.useEffect(() => {
     const fetchProfile = async () => {
       try {
