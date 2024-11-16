@@ -61,8 +61,7 @@ export default function MyProfile() {
     return () => {
       // Example: Cancel token for Axios (if applicable)
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Dependency array: empty ensures the effect runs once
+  }, [token]);
   
   
   return (
