@@ -49,8 +49,6 @@ export default function MyProfile() {
           },
         });
         setProfile(data.user); // Update profile state
-        console.log(data.user)
-        console.log(token)
       } catch (error) {
         console.error('Error fetching profile:', error); // Improved error logging
         // Optionally display error to user here (e.g., using toast or modal)
@@ -65,12 +63,6 @@ export default function MyProfile() {
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Dependency array: empty ensures the effect runs once
-
-  React.useEffect(() => {
-    if (profile) {
-      console.log('Profile actualizado:', profile);
-    }
-  }, [profile]); // Se ejecuta cada vez que 'profile' cambia
   
   
   return (
