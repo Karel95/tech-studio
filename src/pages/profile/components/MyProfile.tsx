@@ -27,7 +27,52 @@ import DropZone from "./DropZone";
 import FileUpload from "./FileUpload";
 import EditorToolbar from "./EditorToolbar";
 
+import React from "react";
+import axios from 'axios';
+
+
+interface UserProfile {
+  username: string;
+  email: string;
+  // Otros campos relevantes...
+}
+
 export default function MyProfile() {
+  const [profile, setProfile] = React.useState<UserProfile | null>(null);
+  const token = localStorage.getItem('token');
+  React.useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const { data } = await axios.get('http://localhost:3000/api/v1/users/profile', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setProfile(data.user); // Update profile state
+        console.log(data.user)
+        console.log(token)
+      } catch (error) {
+        console.error('Error fetching profile:', error); // Improved error logging
+        // Optionally display error to user here (e.g., using toast or modal)
+      }
+    };
+
+    fetchProfile();
+
+    // Cleanup function (if needed in future)
+    return () => {
+      // Example: Cancel token for Axios (if applicable)
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Dependency array: empty ensures the effect runs once
+
+  React.useEffect(() => {
+    if (profile) {
+      console.log('Profile actualizado:', profile);
+    }
+  }, [profile]); // Se ejecuta cada vez que 'profile' cambia
+  
+  
   return (
     <Box sx={{ flex: 1, width: "100%" }}>
       <Box
@@ -151,7 +196,7 @@ export default function MyProfile() {
                     gap: 3,
                   }}
                 >
-                  <Typography level="body-sm">Full name</Typography>
+                  <Typography level="body-sm">{profile? profile.username : 'Full name'}</Typography>
                 </Box>
               </Stack>
               <Stack direction="row" spacing={2}>
@@ -177,7 +222,7 @@ export default function MyProfile() {
                     }}
                   >
                     <EmailRoundedIcon />
-                    <Typography level="body-sm">siriwatk@test.com</Typography>
+                    <Typography level="body-sm">{profile? profile.email : 'email@test.com'}</Typography>
                   </Box>
                 </FormControl>
               </Stack>
@@ -225,7 +270,7 @@ export default function MyProfile() {
                     gap: 1,
                   }}
                 >
-                  <Typography level="body-sm">Full name</Typography>
+                  <Typography level="body-sm">{profile? profile.username : 'Full name'}</Typography>
                 </Box>
               </Stack>
               <Stack direction="row" spacing={2}>
@@ -251,7 +296,7 @@ export default function MyProfile() {
                     }}
                   >
                     <EmailRoundedIcon />
-                    <Typography level="body-sm">siriwatk@test.com</Typography>
+                    <Typography level="body-sm">{profile? profile.email : 'email@test.com'}</Typography>
                   </Box>
                 </FormControl>
               </Stack>
