@@ -1,32 +1,40 @@
+import { useEffect, useState } from 'react';
 import { useColorScheme } from '@mui/joy/styles';
 import IconButton, { IconButtonProps } from '@mui/joy/IconButton';
 import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
 import LightModeIcon from '@mui/icons-material/LightMode';
 
 export default function ColorSchemeToggle(props: IconButtonProps) {
-  const { onClick, sx } = props;
+  const { onClick, sx, ...other } = props;
   const { mode, setMode } = useColorScheme();
+  const [mounted, setMounted] = useState(false);
 
-  // Cuando se hace clic, alternamos entre light y dark mode
+  // Detectar la preferencia del sistema al cargar la página
+  useEffect(() => {
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setMode(systemPrefersDark ? 'dark' : 'light'); // Aseguramos valores válidos
+    setMounted(true); // Marcar el componente como montado
+  }, [setMode]);
+
+  if (!mounted) {
+    // Evitar renderizar antes de montar completamente
+    return null;
+  }
+
   const handleModeToggle = () => {
-    if (mode === 'light') {
-      setMode('dark');
-    } else {
-      setMode('light');
-    }
+    setMode(mode === 'light' ? 'dark' : 'light'); // Alternar entre modos válidos
   };
 
   return (
     <IconButton
-      data-screenshot="toggle-mode"
       size="sm"
       variant="outlined"
       color="neutral"
-      {...props}
       onClick={(event) => {
-        handleModeToggle();  // Cambiar el tema
-        onClick?.(event);  // Llamar a la función onClick si está definida
+        handleModeToggle();
+        onClick?.(event); // Llamar a la función onClick si existe
       }}
+      {...other}
       sx={[
         mode === 'dark'
           ? { '& > *:first-of-type': { display: 'none' } }
